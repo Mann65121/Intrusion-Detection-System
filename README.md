@@ -23,7 +23,7 @@ The system is built on a modular data science pipeline.
 | **Data Processing** | Pandas, NumPy |
 | **Data Visualization** | Matplotlib, Seaborn |
 | **Ensemble Logic** | Voting Classifier (Soft Voting) |
-| **Environment** | Jupyter Notebook / Google Colab |
+| **Environment** | Linux |
 
 ---
 
