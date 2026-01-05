@@ -48,3 +48,12 @@ The model was rigorously tested on a dataset comprising **8,365 network traffic 
            1       0.99      0.84      0.91      3737
 
     accuracy                           0.93      8365
+
+## 💻 How to Run This Project (Linux/Ubuntu)
+
+Since this project is designed for a Linux environment, follow these steps to run the detection system:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/YOUR-USERNAME/Intrusion-Detection-System.git](https://github.com/Mann65121/Intrusion-Detection-System.git)
+   cd Intrusion-Detection-System
