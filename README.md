@@ -1,59 +1,136 @@
-# 🛡️ Sentinel-AI: Hybrid Network Intrusion Detection System
+🛡️ Sentinel-AI: Hybrid Network Intrusion Detection System (IPS)
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/Machine%20Learning-Scikit_Learn-orange?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Active_Development-success?style=for-the-badge)
-![Security](https://img.shields.io/badge/Domain-Cyber_Security-red?style=for-the-badge)
+📖 Executive Summary
 
-## 📖 Executive Summary
-**Sentinel-AI** is an advanced Network Intrusion Detection System (NIDS) engineered to secure network infrastructures against modern cyber threats. Unlike traditional firewalls that rely on static rules, this system utilizes a **Hybrid Ensemble Learning Architecture**.
+Sentinel-AI is an advanced Network Intrusion Prevention System (NIDS) engineered to secure network infrastructures against modern cyber threats. Unlike traditional firewalls that rely on static rules, this system utilizes a 2-Stage Hybrid Ensemble Learning Architecture.
 
-By aggregating the predictive power of five distinct algorithms—**Random Forest, Decision Tree, KNN, Naive Bayes, and SGD**—the system achieves a robust **93% accuracy rate**, significantly reducing false positives and ensuring high-fidelity threat detection.
+By combining a Generative AI (GAN) "Gatekeeper" with a Voting Committee of 5 distinct Machine Learning algorithms, the system achieves a robust 92% accuracy rate and 98% precision, significantly reducing false positives and ensuring high-fidelity threat detection.
 
----
-
-## ⚙️ Technical Architecture & Tech Stack
+⚙️ Technical Architecture & Tech Stack
 
 The system is built on a modular data science pipeline.
 
-| Component | Technology Used |
-| :--- | :--- |
-| **Core Language** | Python 3.x |
-| **ML Framework** | Scikit-Learn (sklearn) |
-| **Data Processing** | Pandas, NumPy |
-| **Data Visualization** | Matplotlib, Seaborn |
-| **Ensemble Logic** | Voting Classifier (Soft Voting) |
-| **Environment** | Linux |
+Component
 
----
+Technology Used
 
-## 📊 Performance Analysis & Results
+Core Language
 
-The model was rigorously tested on a dataset comprising **8,365 network traffic samples**. The **Hybrid Committee Model** outperformed individual classifiers in reliability.
+Python 3.12
 
-### 🏆 Final Model Evaluation
-| Metric | Score | Insight |
-| :--- | :--- | :--- |
-| **Accuracy** | **93.0%** | High reliability in distinguishing normal vs. attack traffic. |
-| **Precision** | **0.99** | Extremely low False Positive Rate (Only 1% error in flagging attacks). |
-| **F1-Score** | **0.91** | Balanced performance between Precision and Recall. |
-| **Threats Blocked**| **2,768** | Successfully identified malicious packets during testing. |
+Deep Learning
 
-### 📉 Detailed Classification Report (Hybrid Committee)
-```text
-[REPORT FOR: HYBRID IPS COMMITTEE]
+PyTorch (for GAN)
+
+ML Framework
+
+Scikit-Learn (sklearn)
+
+Data Processing
+
+Pandas, NumPy
+
+Ensemble Logic
+
+Voting Classifier (Hybrid Committee)
+
+Environment
+
+Linux (Ubuntu 24.04)
+
+🛠️ The 2-Stage Pipeline
+
+Stage 1 (The Gatekeeper): A GAN-based anomaly detector trained only on normal traffic. It flags any deviation (Zero-Day threat) as "Suspicious".
+
+Stage 2 (The Investigator Committee): An ensemble of 5 models (Random Forest, SGD, KNN, Gaussian NB, Decision Tree) votes on suspicious traffic to confirm if it's a real attack or a false alarm.
+
+Stage 3 (Active Response): Automatically blocks the attacker's Session ID if they cross a strike limit.
+
+📊 Performance Analysis & Results
+
+The model was rigorously tested on a real-world cybersecurity dataset comprising 9,537 network traffic samples.
+
+🏆 Final Model Evaluation
+
+Metric
+
+Score
+
+Insight
+
+Accuracy
+
+92%
+
+High reliability in distinguishing normal vs. attack traffic.
+
+Precision
+
+98%
+
+Extremely low False Positive Rate (Only 2% error in flagging attacks).
+
+Recall
+
+84%
+
+Successfully caught 84% of all real attacks.
+
+Threats Blocked
+
+1,737
+
+Automatically identified and blocked malicious user sessions.
+
+Self-Healing
+
+3,325
+
+False positives identified for future model re-training.
+
+📉 Detailed Classification Report (Hybrid Committee)
+
               precision    recall  f1-score   support
 
-           0       0.89      0.99      0.94      4628
-           1       0.99      0.84      0.91      3737
+           0       0.88      0.99      0.93      2960
+           1       0.99      0.84      0.91      2376
 
-    accuracy                           0.93      8365
+    accuracy                           0.92      5336
 
-## 💻 How to Run This Project (Linux/Ubuntu)
+
+💻 How to Run This Project (Linux/Ubuntu)
 
 Since this project is designed for a Linux environment, follow these steps to run the detection system:
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/YOUR-USERNAME/Intrusion-Detection-System.git](https://github.com/Mann65121/Intrusion-Detection-System.git)
-   cd Intrusion-Detection-System
+Clone the repository:
+
+git clone [https://github.com/YOUR-USERNAME/Intrusion-Detection-System.git](https://github.com/YOUR-USERNAME/Intrusion-Detection-System.git)
+cd Intrusion-Detection-System
+
+
+Install Dependencies:
+
+pip install pandas numpy scikit-learn torch tqdm
+
+
+Train the Models:
+(This generates the 6 AI models and processors)
+
+python3 train_models.py
+
+
+Start the Detection Simulation:
+(Runs the real-time detection on test data)
+
+python3 detect_final_demo.py
+
+
+🔮 Future Roadmap (Sem 6)
+
+Real-Time Integration: Connecting the system to live Wi-Fi traffic using Scapy.
+
+Cloud Deployment: Containerizing the app with Docker and deploying on AWS.
+
+Automated Retraining: Implementing a pipeline to auto-update the Gatekeeper model daily.
+
+Created by Manav Bhatt
