@@ -1,136 +1,83 @@
-🛡️ Sentinel-AI: Hybrid Network Intrusion Detection System (IPS)
+🛡️ Sentinel-AI
+Hybrid Network Intrusion Prevention System (NIDS)
 
-📖 Executive Summary
+🚀 Overview
+Sentinel-AI is an advanced Hybrid Network Intrusion Prevention System (NIDS) designed to defend modern network infrastructures against known and zero-day cyber threats.
+Unlike traditional rule-based firewalls, Sentinel-AI employs a 2-Stage Hybrid Ensemble Learning Architecture, combining Generative AI and classical Machine Learning to achieve high precision with minimal false positives.
+🔥 92% Accuracy | 98% Precision | Intelligent Self-Healing System
 
-Sentinel-AI is an advanced Network Intrusion Prevention System (NIDS) engineered to secure network infrastructures against modern cyber threats. Unlike traditional firewalls that rely on static rules, this system utilizes a 2-Stage Hybrid Ensemble Learning Architecture.
+🧠 Key Innovation
+🔐 Generative AI as a “Gatekeeper”
+Sentinel-AI uses a GAN-based anomaly detector trained exclusively on normal network traffic, enabling it to detect previously unseen (zero-day) attacks.
+🤝 Ensemble Intelligence
+Suspicious traffic is verified by a Voting Committee of 5 ML models, ensuring reliable attack confirmation before action is taken.
 
-By combining a Generative AI (GAN) "Gatekeeper" with a Voting Committee of 5 distinct Machine Learning algorithms, the system achieves a robust 92% accuracy rate and 98% precision, significantly reducing false positives and ensuring high-fidelity threat detection.
+## ⚙️ System Architecture & Tech Stack
+| Component | Technology |
+|---------|-----------|
+| Core Language | [Python 3.12](https://www.python.org/downloads/release/python-3120/) |
+| Deep Learning | [PyTorch](https://pytorch.org/) (GAN-based Anomaly Detection) |
+| ML Framework | [Scikit-Learn](https://scikit-learn.org/stable/) |
+| Data Processing | [Pandas](https://pandas.pydata.org/), [NumPy](https://numpy.org/) |
+| Ensemble Logic | [Voting Classifier](https://scikit-learn.org/stable/modules/ensemble.html#voting-classifier) |
+| OS Environment | [Linux (Ubuntu 24.04)](https://ubuntu.com/download/desktop) |
 
-⚙️ Technical Architecture & Tech Stack
+🛠️ 2-Stage Detection Pipeline
 
-The system is built on a modular data science pipeline.
+🧩 Stage 1 — The Gatekeeper (GAN)
+Trained only on benign traffic
+Detects anomalies & zero-day threats
+Flags suspicious sessions for deeper inspection
 
-Component
+🔍 Stage 2 — Investigator Committee
+A voting ensemble of:
+Random Forest
+SGD Classifier
+K-Nearest Neighbors
+Gaussian Naive Bayes
+Decision Tree
+Only consensus-verified threats are classified as attacks.
 
-Technology Used
+🚨 Stage 3 — Active Response Engine
+Tracks attacker Session IDs
+Automatically blocks users crossing a strike threshold
+Prevents repeated malicious attempts
 
-Core Language
+📊 Performance & Evaluation
+📌 Evaluated on a real-world cybersecurity dataset containing 9,537 network traffic samples.
 
-Python 3.12
+🏆 Final Model Performance
+Metric	Score	Insight
+Accuracy	92%	High reliability in traffic classification
+Precision	98%	Extremely low false positives
+Recall	84%	Effective attack capture rate
+Threats Blocked	1,737	Malicious sessions automatically stopped
+Self-Healing Samples	3,325	False positives retained for retraining
 
-Deep Learning
-
-PyTorch (for GAN)
-
-ML Framework
-
-Scikit-Learn (sklearn)
-
-Data Processing
-
-Pandas, NumPy
-
-Ensemble Logic
-
-Voting Classifier (Hybrid Committee)
-
-Environment
-
-Linux (Ubuntu 24.04)
-
-🛠️ The 2-Stage Pipeline
-
-Stage 1 (The Gatekeeper): A GAN-based anomaly detector trained only on normal traffic. It flags any deviation (Zero-Day threat) as "Suspicious".
-
-Stage 2 (The Investigator Committee): An ensemble of 5 models (Random Forest, SGD, KNN, Gaussian NB, Decision Tree) votes on suspicious traffic to confirm if it's a real attack or a false alarm.
-
-Stage 3 (Active Response): Automatically blocks the attacker's Session ID if they cross a strike limit.
-
-📊 Performance Analysis & Results
-
-The model was rigorously tested on a real-world cybersecurity dataset comprising 9,537 network traffic samples.
-
-🏆 Final Model Evaluation
-
-Metric
-
-Score
-
-Insight
-
-Accuracy
-
-92%
-
-High reliability in distinguishing normal vs. attack traffic.
-
-Precision
-
-98%
-
-Extremely low False Positive Rate (Only 2% error in flagging attacks).
-
-Recall
-
-84%
-
-Successfully caught 84% of all real attacks.
-
-Threats Blocked
-
-1,737
-
-Automatically identified and blocked malicious user sessions.
-
-Self-Healing
-
-3,325
-
-False positives identified for future model re-training.
-
-📉 Detailed Classification Report (Hybrid Committee)
-
+📉 Classification Report (Hybrid Committee)
               precision    recall  f1-score   support
 
-           0       0.88      0.99      0.93      2960
-           1       0.99      0.84      0.91      2376
+Normal (0)       0.88      0.99      0.93      2960
+Attack (1)       0.99      0.84      0.91      2376
 
-    accuracy                           0.92      5336
+Accuracy                             0.92      5336
 
-
-💻 How to Run This Project (Linux/Ubuntu)
-
-Since this project is designed for a Linux environment, follow these steps to run the detection system:
-
-Clone the repository:
-
-git clone [https://github.com/YOUR-USERNAME/Intrusion-Detection-System.git](https://github.com/YOUR-USERNAME/Intrusion-Detection-System.git)
+💻 How to Run (Linux / Ubuntu)
+1️⃣ Clone the Repository
+git clone https://github.com/YOUR-USERNAME/Intrusion-Detection-System.git
 cd Intrusion-Detection-System
 
-
-Install Dependencies:
-
+2️⃣ Install Dependencies
 pip install pandas numpy scikit-learn torch tqdm
 
-
-Train the Models:
-(This generates the 6 AI models and processors)
-
+3️⃣ Train the Models
+(Generates all 6 AI models & processors)
 python3 train_models.py
 
-
-Start the Detection Simulation:
-(Runs the real-time detection on test data)
-
+4️⃣ Run Detection Simulation
 python3 detect_final_demo.py
 
-
-🔮 Future Roadmap (Sem 6)
-
-Real-Time Integration: Connecting the system to live Wi-Fi traffic using Scapy.
-
-Cloud Deployment: Containerizing the app with Docker and deploying on AWS.
-
-Automated Retraining: Implementing a pipeline to auto-update the Gatekeeper model daily.
-
-Created by Manav Bhatt
+🔮 Future Roadmap (Semester 6)
+🌐 Real-Time Network Integration using Scapy
+☁️ Cloud Deployment with Docker & AWS
+🔄 Automated Daily Retraining for adaptive threat learning
