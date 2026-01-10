@@ -81,3 +81,7 @@ python3 detect_final_demo.py
 🌐 Real-Time Network Integration using Scapy
 ☁️ Cloud Deployment with Docker & AWS
 🔄 Automated Daily Retraining for adaptive threat learning
+
+Created By:
+Manav Bhatt and
+Prajjwal Sharma
