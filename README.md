@@ -64,7 +64,7 @@ Accuracy                             0.92      5336
 
 💻 How to Run (Linux / Ubuntu)
 1️⃣ Clone the Repository
-git clone https://github.com/YOUR-USERNAME/Intrusion-Detection-System.git
+git clone https://github.com/Mann65121/Intrusion-Detection-System.git
 cd Intrusion-Detection-System
 
 2️⃣ Install Dependencies
